@@ -1,0 +1,17 @@
+<header class="nav">
+  <!-- Only show brand when logged in -->
+  <a *ngIf="loggedIn" routerLink="/courses" class="brand">CourseReg</a>
+
+  <nav class="links" *ngIf="loggedIn; else out">
+    <a routerLink="/courses">Courses</a>
+    <a routerLink="/dashboard">My Schedule</a>
+    <a routerLink="/admin" *ngIf="isAdmin">Admin</a>
+    <button class="btn" (click)="logout()">Logout</button>
+  </nav>
+
+  <ng-template #out>
+    <nav class="links">
+      <a routerLink="/login">Login</a>
+    </nav>
+  </ng-template>
+</header>
